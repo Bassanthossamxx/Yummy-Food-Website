@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yummy</title>
+</head>
+<body class="bg-black">
+    <div class="side-nav-menu closed min-vh-100 position-fixed d-flex top-0 start-0">
+        <div class="nav-tab d-flex flex-column justify-content-between min-vh-100 p-4">
+            <div class="links">
+                <ul class="list-unstyled overflow-hidden">
+                    <li class="py-2 position-relative cursor-pointer animate__animated" id="search">Search</li>
+                    <li class="py-2 position-relative cursor-pointer animate__animated" id="categories">Categories</li>
+                    <li class="py-2 position-relative cursor-pointer animate__animated" id="area">Area</li>
+                    <li class="py-2 position-relative cursor-pointer animate__animated" id="ingredients">Ingredients</li>
+                    <li class="py-2 position-relative cursor-pointer animate__animated" id="contact">Contact Us</li>
+                </ul>
+            </div>
+            <div class="nav-footer">
+                <div class="icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="footer">
+                    <p>Copyright © 2019 All Rights <br>Reserved.</p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-header d-flex flex-column justify-content-between py-4 text-center px-2 bg-white text-black">
+            <img class="logo" src="img/logo.png" alt="">
+            <i class="fa-solid open-close-icon fa-align-justify fa-2x"></i>
+            <div>
+                <i class="fa-solid fa-globe d-block"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row py-5 g-4" id="row">
+            <div class="d-flex justify-content-center align-items-center vh-100">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container search d-none" id="dsearch">
+        <div class="row py-4">
+            <div class="col-md-6">
+                <input id="searchByName" class="form-control bg-black text-white" type="text" placeholder="Search By Name">
+            </div>
+            <div class="col-md-6">
+                <input id="searchByFirstLetter" maxlength="1" class="form-control bg-black text-white" type="text" placeholder="Search By First Letter">
+            </div>
+            
+        </div>
+        <div class="row" id="searchResults">
+        </div>
+    </div>
+    <div class=" p-5 categories ms-5 d-none" id="dcategories">
+        <div id="rcategory" class="row"></div>
+
+    </div>
+    <div class=" p-5 area ms-5 d-none" id="darea">
+        <div class="row container" id="rarea">
+            <div class="spinner d-flex justify-content-center align-items-center">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container recipe-section d-none" id="recipe-section">
+        <div class="recipe-content" id="recipe-content">
+            <div class="recipe-image-section">
+                <img src="" alt="" class="recipe-image" id="recipe-image">
+                <h2 class="recipe-title" id="recipe-title"></h2>
+            </div>
+            <div class="recipe-details-section">
+                <div class="recipe-instructions">
+                    <h4>Instructions</h4>
+                    <p id="instruction"></p>
+                </div>
+                <div class="recipe-details">
+                    <p class="h2 m-2" id="areatext"><span class="h2 fwbold">Area : </span></p>
+                    <p class="h2 m-2" id="categorytext"><span class="h2 fwbold">Category : </span></p>
+                    <h3 class="h2 fwbold m-2 mt-3 ">Recipes : </h3>
+                    <ul class="text-decoration-none list-unstyled d-flex flex-wrap" id="rdetails"></ul>
+                </div>
+                <div class="recipe-tags">
+                    <h4>Tags :</h4>
+                    <ul class="text-decoration-none list-unstyled d-flex" id="tags"></ul>
+                </div>
+                <div class="recipe-source" id="recipe-source">
+                    <button class="btn btn-success" id="source">Source</button>
+                    <button class="btn btn-danger" id="YouTube">YouTube</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intgerdiant container">
+        <div class="row mt-3 p-1 cursor-pointer" id="irow">
+        </div>
+    </div>
+    <div class="contact min-vh-100 d-flex justify-content-center align-items-center d-none" id="dcontact">
+        <div class="container w-75 text-center">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <input id="nameInput" type="text" class="form-control" placeholder="Enter Your Name">
+                    <div id="nameAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Special characters and numbers not allowed
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="emailInput" type="email" class="form-control " placeholder="Enter Your Email">
+                    <div id="emailAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Email not valid *exemple@yyy.zzz
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="phoneInput" type="text" class="form-control " placeholder="Enter Your Phone">
+                    <div id="phoneAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid Phone Number
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="ageInput" type="number" class="form-control " placeholder="Enter Your Age">
+                    <div id="ageAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid age
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="passwordInput" type="password" class="form-control " placeholder="Enter Your Password">
+                    <div id="passwordAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid password *Minimum eight characters, at least one letter and one number:*
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="repasswordInput" type="password" class="form-control " placeholder="Repassword">
+                    <div id="repasswordAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid repassword 
+                    </div>
+                </div>
+            </div>
+            <button id="submitBtn" disabled="" class="btn btn-outline-danger px-2 mt-3">Submit</button>
+        </div>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

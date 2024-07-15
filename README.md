@@ -1,4 +1,4 @@
-# Yummy
+# Yummy Website
 
 [Yummy](https://yummybassanthossamxx.netlify.app/) is a food website that allows users to explore and search for various meals. The website features a dynamic main page displaying random meals, along with a side navigation bar containing several sections for enhanced user interaction.
 
